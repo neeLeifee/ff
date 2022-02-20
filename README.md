@@ -1,7 +1,7 @@
 # DrugoPoisk
 
 Задачи ♂ членов ♂ команды:
-https://trello.com/b/xhPoYfqc/main
+https://trello.com/invite/b/xhPoYfqc/e9b0c838959816f40769eb30cd70a1f8/main
 
 Базовая идея
 создать приложение "Другопоиск" для поиска товарищей и любителей одного дела
