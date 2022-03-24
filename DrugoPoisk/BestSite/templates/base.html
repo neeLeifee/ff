@@ -12,18 +12,20 @@
         <button type="submit">Войти</button>
     </form>
     <br>
+    <form action="{% url 'signup' %}">
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+    <br>
+    <form action="{% url 'profile' %}">
+        <button type="submit">Профиль</button>
+    </form>
+    <br>
+    <form action="{% url 'change_profile' %}">
+        <button type="submit">Изменить профиль</button>
+    </form>
+    <br>
     <form action="{% url 'logout' %}">
         <button type="submit">Выйти</button>
     </form>
-    <style>
-        position: absolute;
-        width: 329px;
-        height: 83px;
-
-        background: #9E00FF;
-        border: 1px solid #000000;
-        box-sizing: border-box;
-        box-shadow: 12px 12px 4px rgba(0, 0, 0, 0.25);
-    </style>
 </body>
 </html>

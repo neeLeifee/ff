@@ -1,0 +1,19 @@
+{% block head %}
+<title> Profile Page</title>
+{% endblock %}
+
+{% block body %}
+    <style>
+        div.container{
+            margin-left: 2%;
+            margin-top: 2%;
+        }
+    </style>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Изменить</button>
+        </form>
+    </div>
+{% endblock %}

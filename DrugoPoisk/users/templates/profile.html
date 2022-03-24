@@ -1,0 +1,22 @@
+{% block head %}
+<title> Profile Page</title>
+{% endblock %}
+
+{% block body %}
+    <style>
+        div.container{
+            margin-left: 2%;
+            margin-top: 2%;
+        }
+    </style>
+    <div class="container">
+        {% csrf_token %}
+        <h1>Профиль</h1>
+        <p>Имя:            {{ user.username }}         </p>
+        <p>Кличка:         {{ user.klitchka }}    </p>
+        <p>Почта:          {{ user.email }}       </p>
+        <p>Город:          {{ user.city }}        </p>
+        <p>Дата рождения:  {{ user.birth }}       </p>
+        <p>Пол:            {{ user.gender }}      </p>
+    </div>
+{% endblock %}

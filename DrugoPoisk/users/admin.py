@@ -13,9 +13,10 @@ class CustomUserAdmin(UserAdmin):
             'Custom fields',
             {
                 'fields': (
-                    'real_name',
+                    'klitchka',
                     'city',
                     'birth',
+                    'gender',
                 )
             }
         )
@@ -27,9 +28,10 @@ class CustomUserAdmin(UserAdmin):
             'Custom fields',
             {
                 'fields': (
-                    'real_name',
+                    'klitchka',
                     'city',
                     'birth',
+                    'gender',
                 )
             }
         )

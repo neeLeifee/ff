@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-from .forms import CustomUserCreationForm, LoginForm
+from .forms import CustomUserCreationForm, LoginForm, ChangeProfileForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserChangeForm
 
 
 class SignUpView(CreateView):
@@ -14,8 +16,7 @@ class SignUpView(CreateView):
     def post(self, request, *args, **kwargs):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            user.save
+            form.save()
             return redirect('base')
         else:
             return render(request, self.template_name, {'form': form})
@@ -39,3 +40,26 @@ def login_user(request):
         form = LoginForm()
     context = {'form': form}
     return render(request, 'login.html', context)
+
+
+@login_required
+def show_profile(request):
+    args = {'user': request.user}
+    return render(request, 'profile.html', args)
+
+
+def change_profile(request):
+    if request.method == "POST":
+        form = ChangeProfileForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('../profile')
+        else:
+            form = ChangeProfileForm(instance=request.user)
+            args = {'form': form}
+            return render(request, 'change_profile.html', args)
+    else:
+        form = ChangeProfileForm(instance=request.user)
+        args = {'form': form}
+        return render(request, 'change_profile.html', args)
